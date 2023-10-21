@@ -1,2 +1,2 @@
-# the-matrix-prime
+# Bài tập lớn
 first-coding-major-assignment
