@@ -15,6 +15,7 @@ void prime(){
 		}
 	}
 }
+// ham loc so nguyen to
 
 bool check(int n){
 	for(int i=2; i<=sqrt(n); i++){
@@ -22,6 +23,7 @@ bool check(int n){
 	}
 	return 1;
 }
+// ham kiem tra so nguyen to
 
 int tong(int n){
 	int sum = 0;
@@ -31,6 +33,7 @@ int tong(int n){
 	}
 	return sum;
 }
+//ham tinh tong cac chu so
 
 bool dem(int n){
 	int cnt = 0;
@@ -41,6 +44,7 @@ bool dem(int n){
 	if(cnt==5) return 1;
 	else return 0;
 }
+//ham dem so luong chu so
 
 int main(){
 	int s; cin >> s;
