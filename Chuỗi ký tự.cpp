@@ -1,3 +1,4 @@
+//Made by DangQuocDung
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -19,9 +20,13 @@ int main(){
 	while(check){
 		int cnt = 0;
 		for(int i=0; i<=n; i++){
-			if(a[i+1]-a[i]==1 || a[i+1] - a[i] == -1) cnt++;
+			if(a[i+1]-a[i]==1 || a[i+1] - a[i] == -1) cnt++; //kiem tra tinh lien tuc cua cac ky tu A
 		}
 		if(cnt==2){
+			for(int i=1; i<=n; i++){
+				if(a[i]==1) b[i] = 'A'; //chuyen cac chu so 1 thanh ky tu A
+				else b[i] = 'B'; // chuyen cac chu so 0 thanh ky tu B
+			}
 			for(int i=1; i<=n; i++){
 				cout << b[i];
 			}
@@ -34,9 +39,5 @@ int main(){
 		}
 		a[k] = 1;
 		if(k==0) check = false;
-		for(int i=1; i<=n; i++){
-			if(a[i]==1) b[i] = 'A';
-			else b[i] = 'B';
-		}
 	}
 } 
