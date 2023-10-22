@@ -111,7 +111,7 @@ int main(){
 						}
 					}
 				for(int i=0; i<5; i++){
-					if(tonghang[i]!=s && tongcot[i]!=s) res = 0;
+					if(tonghang[i]!=s || tongcot[i]!=s) res = 0;
 				}
 				for(int i=0; i<5; i++){
 					hang4+=b[4][i]*pow(10,4-i);
