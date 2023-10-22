@@ -97,7 +97,7 @@ int main(){
 		for(int t2=0; t2<k; t2++){
 			if(c[t2][0]==d[0][0] && c[t2][1]==d[1][1] && c[t2][2]==d[2][2] && c[t2][3]==d[3][3]){
 				d[4][4] = c[t2][4];
-				int tonghang[5] ={0}; int tongcot[5] = {0}; int tongcheo = 0; int res = 1;
+				int tonghang[5] ={0}; int tongcot[5] = {0}; int res = 1;
 				int hang4 = 0; int cot4 = 0;
 				for(int i=0; i<5; i++){
 					for(int j=0; j<5; j++){
@@ -108,7 +108,6 @@ int main(){
 					for(int j=0; j<5; j++){
 						tonghang[i]+=b[i][j];
 						tongcot[i]+=b[j][i];
-						if(i==j) tongcheo+=b[i][j];
 						}
 					}
 				for(int i=0; i<5; i++){
