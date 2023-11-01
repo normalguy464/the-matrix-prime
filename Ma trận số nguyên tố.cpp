@@ -5,18 +5,6 @@ using namespace std;
 
 #define ll long long
 
-int a[100005] = {0};
-
-void prime(){
-	a[0] = a[1] = 1;
-	for(int i=2; i<=sqrt(100005); i++){
-		for(int j=i*i; j<=100005; j+=i){
-			a[j] = 1;
-		}
-	}
-}
-// ham loc so nguyen to
-
 bool check(int n){
 	for(int i=2; i<=sqrt(n); i++){
 		if(n%i==0) return 0;
@@ -48,17 +36,17 @@ bool dem(int n){
 
 int main(){
 	int s; cin >> s;
-	prime();
 	string c[1005]; int k = 0; 
 	int b[5][5];
+	int a[100005] = {0};
 	for(int i=2; i<=100005; i++){
-		if(a[i]!=1 && tong(i)==s && dem(i)){
+		if(check(i) && tong(i)==s && dem(i)){
 		c[k] = to_string(i);
 		k++;
 	}
 	}
 		for(int x0=0; x0<k; x0++){
-			char d[5][5];
+				char d[5][5];
 		//hang0
 				d[0][0] = c[x0][0]; d[0][1] = c[x0][1]; d[0][2] = c[x0][2]; d[0][3] = c[x0][3]; d[0][4] = c[x0][4];
 		//cot0
@@ -97,7 +85,7 @@ int main(){
 		for(int t2=0; t2<k; t2++){
 			if(c[t2][0]==d[0][0] && c[t2][1]==d[1][1] && c[t2][2]==d[2][2] && c[t2][3]==d[3][3]){
 				d[4][4] = c[t2][4];
-				int tonghang[5] ={0}; int tongcot[5] = {0}; int res = 1;
+				int tonghang4 = 0; int tongcot4 = 0; int res = 1;
 				int hang4 = 0; int cot4 = 0;
 				for(int i=0; i<5; i++){
 					for(int j=0; j<5; j++){
@@ -105,14 +93,12 @@ int main(){
 						}
 					}
 				for(int i=0; i<5; i++){
-					for(int j=0; j<5; j++){
-						tonghang[i]+=b[i][j];
-						tongcot[i]+=b[j][i];
-						}
+					tonghang4+=b[4][i];
+					tongcot4+=b[i][4];
 					}
-				for(int i=0; i<5; i++){
-					if(tonghang[i]!=s || tongcot[i]!=s) res = 0;
-				}
+					
+				if(tonghang4!=s || tongcot4!=s) res = 0;
+				
 				for(int i=0; i<5; i++){
 					hang4+=b[4][i]*pow(10,4-i);
 					cot4+=b[i][4]*pow(10,4-i);
