@@ -5,18 +5,11 @@ using namespace std;
 
 #define ll long long
 
-int a[10000];
-char b[10000];
-void mang(){
-	for(int i=0; i<10000; i++){
-		a[i] = 0;
-	}
-}
-// ham danh dau mang a[10000] co cac phan tu bang 0
-
 int main(){
 	int n; cin >> n;
 	bool check = true;
+	int a[1000] = {0};
+	char b[1000];
 	while(check){
 		int cnt = 0;
 		for(int i=0; i<=n; i++){
@@ -32,6 +25,7 @@ int main(){
 			}
 					cout << endl;
 		}
+		
 		int k = n;
 		while(a[k]==1 && k!=0){
 			a[k] = 0;
@@ -39,5 +33,6 @@ int main(){
 		}
 		a[k] = 1;
 		if(k==0) check = false;
+		// duyet cac xau nhi phan
 	}
 } 
