@@ -71,7 +71,7 @@ int main(){
 				}
 			cout << endl;
 			}
-					int cnt = 0;
+		int cnt = 0;
 		for(int i=1; i<n; i++){
 			if(a[i+1]-a[i]<0) cnt++;
 		}
