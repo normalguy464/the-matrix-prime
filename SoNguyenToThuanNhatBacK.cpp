@@ -5,7 +5,7 @@ using namespace std;
 #define ll long long
 
 void sapxep(int a[], int n, int t){
-	for(int i=t; i<=n; i++){
+	for(int i=t; i<=n-1; i++){
 		for(int j=i+1; j<=n; j++){
 			if(a[j]<a[i]){
 				int tmp = a[i];
@@ -63,7 +63,7 @@ int main(){
 			for(int j=i; j<=i+k-1; j++){
 				z+=a[j];
 				}
-			if(prime(z)==0) kiemtra = 0; // kiem tra xem tong k phan tu lien tiep bat ki có phai so nguyen to
+			if(prime(z)==0) kiemtra = 0; // kiem tra xem tong k phan tu lien tiep bat ki cÃ³ phai so nguyen to
 			}
 		if(kiemtra){
 			for(int i=1; i<=n; i++){
