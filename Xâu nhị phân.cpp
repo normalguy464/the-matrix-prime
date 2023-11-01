@@ -4,17 +4,10 @@ using namespace std;
 
 #define ll long long
 
-int a[1000];
-
-void danhdau(){
-	for(int i=0; i<1000;i++){
-		a[i] = 0;
-	}
-}
-// ham dua cac gia tri trong mang ve bang 0
 int main(){
 	int n; cin >> n;
 	int check = 1;
+	int a[1000] = {0};
 	while(check){
 		for(int i=1;i<=n; i++){
 			cout << a[i];
