@@ -39,7 +39,7 @@ int main(){
 	string c[1005]; int k = 0; 
 	int b[5][5];
 	int a[100005] = {0};
-	for(int i=2; i<=100005; i++){
+	for(int i=10000; i<=100000; i++){
 		if(check(i) && tong(i)==s && dem(i)){
 		c[k] = to_string(i);
 		k++;
