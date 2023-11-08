@@ -45,6 +45,7 @@ int main(){
 		k++;
 	}
 	}
+		int cnt = 0;
 		for(int x0=0; x0<k; x0++){
 				char d[5][5];
 		//hang0
@@ -111,6 +112,7 @@ int main(){
 						}
 						cout << endl;
 					}
+					cnt++;
 					cout << endl;
 				}
 			}
@@ -131,6 +133,7 @@ int main(){
 		}
 			}		
 		}
-		} 
+			} 
+	cout << "So cau hinh thoa man la: " << cnt << endl;
 	return 0;
 }
