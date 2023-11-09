@@ -6,7 +6,7 @@ using namespace std;
 
 int main(){
 	int n; cin >> n;
-	int check = 1;
+	int check = true;
 	int a[1000] = {0};
 	int cnt = 0; 
 	while(check){
@@ -22,7 +22,7 @@ int main(){
 			a[k] = 0; // neu a[k] = 1, ta dua a[k] ve bang 0
 			k--;
 		}
-		if(k==0) check = 0;
+		if(k==0) check = false;
 		else a[k] = 1; // neu a[k] = 0, ta dua a[k] ve bang 1
 	}
 	cout << "So xau nhi phan " << n << " bit la: " << cnt;
