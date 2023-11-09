@@ -8,7 +8,9 @@ int main(){
 	int n; cin >> n;
 	int check = 1;
 	int a[1000] = {0};
+	int cnt = 0; 
 	while(check){
+		cnt++;
 		for(int i=1;i<=n; i++){
 			cout << a[i];
 		} 
@@ -23,4 +25,5 @@ int main(){
 		if(k==0) check = 0;
 		else a[k] = 1; // neu a[k] = 0, ta dua a[k] ve bang 1
 	}
+	cout << "So xau nhi phan " << n << " bit la: " << cnt;
 }
