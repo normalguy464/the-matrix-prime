@@ -29,7 +29,7 @@ bool prime(int n){
 }
 
 //ham kiem tra tong k so lien tiep co phai so nguyen to
-bool check(int X[]){
+bool tong_nguyen_to(int X[]){
 	for(int i=1; i<=N-K+1; i++){
 		int z = 0;
 		for(int j=i; j<=i+K-1; j++){
