@@ -5,7 +5,7 @@ using namespace std;
 #define ll long long
 
 int N, K, X[100], used[100], a[100];
-int cnt = 0; 
+int so_cau_hinh = 0; 
 vector<int> v;
 
 //ham in ra cac cau hinh thoa man
@@ -47,7 +47,7 @@ void Try(int i){
 			X[i] = a[j];
 			used[j] = 1;
 			if(i == N && check(X)){
-				cnt++;
+				so_cau_hinh++;
 			for(int i=1; i<=N; i++)  v.push_back(X[i]);
 			}
 			else{
@@ -65,7 +65,7 @@ int main(){
 	}
 	sort(a,a+N);
 	Try(1);
-	cout << "So cau hinh thoa man la: " << cnt << endl;
+	cout << "So cau hinh thoa man la: " << so_cau_hinh << endl;
 	inkq(); 
 	return 0;
 }
