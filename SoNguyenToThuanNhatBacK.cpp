@@ -46,7 +46,7 @@ void Try(int i){
 		if(used[j]==0){
 			X[i] = a[j];
 			used[j] = 1;
-			if(i == N && check(X)){
+			if(i == N && tong_nguyen_to(X)){
 				so_cau_hinh++;
 			for(int i=1; i<=N; i++)  v.push_back(X[i]);
 			}
