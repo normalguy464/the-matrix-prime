@@ -4,77 +4,68 @@ using namespace std;
 
 #define ll long long
 
-void sapxep(int a[], int n, int t){
-	for(int i=t; i<=n-1; i++){
-		for(int j=i+1; j<=n; j++){
-			if(a[j]<a[i]){
-				int tmp = a[i];
-				a[i] = a[j];
-				a[j] = tmp;
-			}
+int N, K, X[100], used[100], a[100];
+int cnt = 0; 
+vector<int> v;
+
+//ham in ra cac cau hinh thoa man
+void inkq(){
+	int dem = 0;
+	for(auto x : v){
+		cout << x << " "; dem++;
+		if(dem == N){
+			cout << endl;
+			dem = 0;
 		}
 	}
 }
-// ham dung de sap xep cac phan tu trong mang theo thu tu tang dan
-// sap xep tu phan tu thu t den phan tu thu n
 
+//ham kiem tra so nguyen to
 bool prime(int n){
 	for(int i=2; i<=sqrt(n); i++){
 		if(n%i==0) return 0;
 	}
 	return 1;
 }
-// ham kiem tra so nguyen to
+
+//ham kiem tra tong k so lien tiep co phai so nguyen to
+bool check(int X[]){
+	for(int i=1; i<=N-K+1; i++){
+		int z = 0;
+		for(int j=i; j<=i+K-1; j++){
+			z+=X[j];
+		}
+		if(prime(z)==0) return 0;
+	}
+	return 1;
+} 
+
+//dung thuat toan quay lui de duyet cac cau hinh
+void Try(int i){
+	for(int j=1; j<=N ;j++){
+		if(used[j]==0){
+			X[i] = a[j];
+			used[j] = 1;
+			if(i == N && check(X)){
+				cnt++;
+			for(int i=1; i<=N; i++)  v.push_back(X[i]);
+			}
+			else{
+				Try(i+1);
+			}
+			used[j] = 0;
+		}
+	}
+}
+
 int main(){
-	int n , k; cin >> n >> k;
-	int a[1000]; a[0] = 0;
-	for(int i=1 ; i<=n; i++){
+	cin >> N >> K;
+	for(int i=1; i<=N; i++){
 		cin >> a[i];
 	}
-	sort(a, a+n); //sap xep cac phan tu trong mang theo thu tu tang dan
-	//gia su cau hinh co dang a[0]a[1]...a[n].
-	bool check = true;
-	while(check){
-		int t = 0; int res1 = 0;
-		for(int i=1; i<n; i++){
-			if(a[i+1]-a[i]>0) t = i+1; 
-			if(t>res1) res1 = t; //chon ra chi so t lon nhat, luu t vao bien ki luc res1
-		}
-		int res2 = INT_MAX;
-		for(int i=res1; i<=n; i++){
-			if(a[i]>a[res1-1] && a[i]<res2){
-				res2 = a[i];
-				// tim a[i] sao cho a[i] la so nho nhat trong khoang a[res1]->a[n]
-				// va a[i] > a[res-1]
-				// luu a[i] vao bien ki luc res2
-			}
-		}
-		for(int i=1; i<=n; i++){
-			if(a[i]==res2){
-				int temp = a[res1-1]; // doi cho 2 phan tu a[i] va a[res-1] de thuc hien sap xep
-				a[res1-1] = a[i];
-				a[i] = temp;
-			}
-		}
-		sapxep(a,n,res1);
-		bool kiemtra = 1;
-		for(int i=1; i<=n-k+1; i++){
-			int z = 0;
-			for(int j=i; j<=i+k-1; j++){
-				z+=a[j];
-				}
-			if(prime(z)==0) kiemtra = 0; // kiem tra xem tong k phan tu lien tiep bat ki có phai so nguyen to
-			}
-		if(kiemtra){
-			for(int i=1; i<=n; i++){
-				cout << a[i] << " "; // in ra cac truong hop thoa man.
-				}
-			cout << endl;
-			}
-		int cnt = 0;
-		for(int i=1; i<n; i++){
-			if(a[i+1]-a[i]<0) cnt++;
-		}
-		if(cnt==n-1) check = false; //kiem tra xem a[i+1]-a[i]>0 voi moi i.
-		}
-	}
+	sort(a,a+N);
+	Try(1);
+	cout << "So cau hinh thoa man la: " << cnt << endl;
+	inkq(); 
+	return 0;
+}
