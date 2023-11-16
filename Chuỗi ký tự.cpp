@@ -9,11 +9,12 @@ int main(){
 	bool check = true;
 	int a[1000] = {0};
 	char b[1000];
+	vector<char> v;
 	int so_cau_hinh = 0; 
 	while(check){
 		int cnt = 0;
 		for(int i=0; i<=n; i++){
-			if(a[i+1]-a[i]==1 || a[i+1] - a[i] == -1) cnt++; //kiem tra tinh lien tuc cua cac ky tu A
+			if(abs(a[i+1]-a[i])==1) cnt++; //kiem tra tinh lien tuc cua cac ky tu A
 		}
 		if(cnt==2){
 			so_cau_hinh++;
@@ -22,11 +23,9 @@ int main(){
 				else b[i] = 'B'; // chuyen cac chu so 0 thanh ky tu B
 			}
 			for(int i=1; i<=n; i++){
-				cout << b[i];
-			}
-					cout << endl;
+				v.push_back(b[i]);
+				}
 		}
-		
 		int k = n;
 		while(a[k]==1 && k!=0){
 			a[k] = 0;
@@ -36,5 +35,14 @@ int main(){
 		if(k==0) check = false;
 		// duyet cac xau nhi phan
 	}
-	cout << "So cau hinh thoa man la: " << so_cau_hinh;
+	cout << "So cau hinh thoa man la: " << so_cau_hinh << endl;
+	int dem = 0;
+	for(auto x2 : v){
+		cout << x2; dem++; //in ra cac cau hinh thoa man
+		if(dem==n){
+			 cout << endl;
+			 dem = 0;
+		}
+	}
+	
 } 
