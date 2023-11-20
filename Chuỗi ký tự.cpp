@@ -5,7 +5,7 @@ using namespace std;
 #define ll long long
 
 int main(){
-	int n; cin >> n;
+	int n, t; cin >> n >> t;
 	bool check = true;
 	int a[1000] = {0};
 	char b[1000];
@@ -14,12 +14,21 @@ int main(){
 	while(check){
 		//cau hinh co dang a[1]a[2]...a[n]
 		//cau hinh dau tien la 000..0
-		int cnt = 0;
+		int cnt = 0; int so_dinh = 0;
 		for(int i=0; i<=n; i++){
-			if(abs(a[i+1]-a[i])==1) cnt++; //kiem tra tinh lien tuc cua cac ky tu A
-		}
-		if(cnt==2){
-			so_cau_hinh++;
+				if(a[i]==1){
+					cnt++;
+					if(a[i+1]==0){
+						if(cnt == t){
+						so_dinh++;
+							}
+						cnt = 0;
+						}
+					}
+			}
+
+			if(so_dinh==1){
+				so_cau_hinh++;
 			for(int i=1; i<=n; i++){
 				if(a[i]==1) b[i] = 'A'; //chuyen cac chu so 1 thanh ky tu A
 				else b[i] = 'B'; // chuyen cac chu so 0 thanh ky tu B
@@ -27,7 +36,7 @@ int main(){
 			for(int i=1; i<=n; i++){
 				v.push_back(b[i]);
 				}
-		}
+			}
 		int k = n;
 		while(a[k]==1 && k!=0){
 			a[k] = 0;
@@ -46,5 +55,5 @@ int main(){
 			 dem = 0;
 		}
 	}
+}
 	
-} 
